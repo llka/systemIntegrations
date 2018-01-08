@@ -38,7 +38,6 @@ public class SystemJsonParser {
         String jsonInString = gson.toJson(systems);
         try (FileWriter file = new FileWriter(fileName)) {
             file.write(jsonInString);
-            System.out.println("Successfully Copied JSON Object to File...");
         } catch (IOException e) {
             logger.error("Can not write to json file", e);
         }

@@ -18,7 +18,7 @@ public class Application implements CommandLineRunner {
     @Autowired
     private SystemJsonParser systemJsonParser;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args){
         SpringApplication.run(Application.class, args);
     }
 

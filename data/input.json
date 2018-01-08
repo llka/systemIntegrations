@@ -1,0 +1,32 @@
+[
+  {
+    "fullName": "Blog",
+    "systemId": "Blog",
+    "links": {
+      "docs": "http://docs",
+      "api": "http://api"
+    },
+    "integrationsFrom": [
+      {
+        "fromProjectSystemId": "Blog",
+        "toProjectSystemId": "QA"
+      }
+    ],
+    "integrationsReceived": []
+  },
+  {
+    "fullName": "QA",
+    "systemId": "QA",
+    "links": {
+      "docs": "http://docs2",
+      "api": "http://api2"
+    },
+    "integrationsFrom": [],
+    "integrationsReceived": [
+      {
+        "fromProjectSystemId": "Blog",
+        "toProjectSystemId": "QA"
+      }
+    ]
+  }
+]
