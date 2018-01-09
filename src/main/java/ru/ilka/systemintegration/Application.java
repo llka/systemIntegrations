@@ -17,6 +17,9 @@ import java.util.ArrayList;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
     private static Logger logger = LogManager.getLogger(Application.class);
+    private static final String INPUT_FILE = "data/input.json";
+    private static final String SYSTEMS_FILE = "data/systems.json";
+    private static final String OUTPUT_FILE = "data/output.json";
 
     @Autowired
     private SystemIntegrationsJsonParser systemJsonParser;
@@ -33,12 +36,12 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        ArrayList<ProjectSystem> systems = systemJsonParser.readSystems("data/input.json");
+        ArrayList<ProjectSystem> systems = systemJsonParser.readSystems(INPUT_FILE);
         systems.forEach(logger::info);
 
         logger.debug("sorted:");
         systemLogic.sortSystemsInLexicalOrder(systems);
-        systemJsonParser.writeSystems(systems, "data/systems.json");
+        systemJsonParser.writeSystems(systems, SYSTEMS_FILE);
         systems.forEach(logger::info);
 
         MatrixCell[][] matrix = matrixLogic.buildAdjacencyMatrix(systems);
@@ -46,6 +49,6 @@ public class Application implements CommandLineRunner {
         logger.debug("ready");
         matrixLogic.printMatrix(matrix);
 
-        systemJsonParser.writeMatrix(matrix, "data/output.json");
+        systemJsonParser.writeMatrix(matrix, OUTPUT_FILE);
     }
 }
