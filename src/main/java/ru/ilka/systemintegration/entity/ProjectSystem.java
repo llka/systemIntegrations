@@ -131,6 +131,8 @@ public class ProjectSystem {
                 "fullName='" + fullName + '\'' +
                 ", systemId='" + systemId + '\'' +
                 ", links=" + links +
+                ", integrationsFrom=" + integrationsFrom +
+                ", integrationsReceived=" + integrationsReceived +
                 '}';
     }
 }
