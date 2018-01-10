@@ -1,3 +1,9 @@
-<p>
-  matrix works!
-</p>
+<button (click) = getMatrix()>Get Matrix</button>
+
+<div class="matrix">
+  <div class="matrix__raw" *ngFor="let raw of raws">
+    <div class="matrix__cell" [style.width] = cellWidth *ngFor="let cell of raw.raw">
+      {{cell.displayedInfo}}
+    </div>
+  </div>
+</div>

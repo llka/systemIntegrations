@@ -1,0 +1,143 @@
+swagger: '2.0'
+info:
+  description: >-
+    Systems' integrations graph is represented as  an Adjacency matrix with info
+    blocks , developed with Spring (Boot, MVC) , Angular 5
+  version: API TOS
+  title: Info about Systems' integrations REST API
+  termsOfService: Terms of service
+  contact:
+    name: Ilya Kisel
+    url: 'https://git.epam.com/Ilya_Kisel/javalab/tree/systemIntegrations'
+    email: ilya_kisel@epam.com
+  license:
+    name: License of API
+    url: 'https://git.epam.com/Ilya_Kisel/javalab/tree/systemIntegrations'
+host: 'localhost:8088'
+basePath: /
+tags:
+  - name: system-controller
+    description: System Controller
+  - name: matrix-controller
+    description: Matrix Controller
+paths:
+  /matrix:
+    get:
+      tags:
+        - matrix-controller
+      summary: getMatrix
+      operationId: getMatrixUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: array
+              items:
+                $ref: '#/definitions/MatrixCell'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /systems:
+    get:
+      tags:
+        - system-controller
+      summary: getAllSystems
+      operationId: getAllSystemsUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProjectSystem'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  '/systems/{systemId}':
+    get:
+      tags:
+        - system-controller
+      summary: getSystemById
+      operationId: getSystemByIdUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: systemId
+          in: path
+          description: systemId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ProjectSystem'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+definitions:
+  Coordinates:
+    type: object
+    properties:
+      x:
+        type: integer
+        format: int32
+      'y':
+        type: integer
+        format: int32
+  Integration:
+    type: object
+    properties:
+      fromProjectSystemId:
+        type: string
+      integrationDocsUrl:
+        type: string
+      toProjectSystemId:
+        type: string
+  MatrixCell:
+    type: object
+    properties:
+      coordinates:
+        $ref: '#/definitions/Coordinates'
+      displayedInfo:
+        type: string
+  ProjectSystem:
+    type: object
+    properties:
+      fullName:
+        type: string
+      integrationsFrom:
+        type: array
+        items:
+          $ref: '#/definitions/Integration'
+      integrationsReceived:
+        type: array
+        items:
+          $ref: '#/definitions/Integration'
+      links:
+        type: object
+        additionalProperties:
+          type: string
+      systemId:
+        type: string

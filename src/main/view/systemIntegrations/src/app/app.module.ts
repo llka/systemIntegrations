@@ -8,6 +8,8 @@ import { MatrixComponent } from './matrix/matrix.component';
 import { MatrixCellComponent } from './matrix-cell/matrix-cell.component';
 import { IntegrationComponent } from './integration/integration.component';
 import {DataService} from './data.service';
+import {HttpClientModule} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
@@ -16,10 +18,12 @@ import {DataService} from './data.service';
     SystemComponent,
     MatrixComponent,
     MatrixCellComponent,
-    IntegrationComponent
+    IntegrationComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

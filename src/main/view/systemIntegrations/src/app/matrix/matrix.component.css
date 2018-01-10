@@ -1,0 +1,12 @@
+.matrix {
+  color: #f2f2f2;
+}
+
+.matrix__raw {
+  display: flex;
+}
+
+.matrix__cell {
+  padding: 20px;
+  border: solid 1px whitesmoke;
+}
