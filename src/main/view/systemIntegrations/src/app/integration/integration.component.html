@@ -1,3 +1,19 @@
-<p>
-  integration works!
-</p>
+<div class="matrix__cell" (click)="openModal()">
+  {{integrationCell.displayedInfo}}
+</div>
+
+<div class="mask" [style.display] = displayModal>
+  <div class="modal animate">
+
+    <div class="modal__header">
+      <div>From {{integrationCell.integration.fromProjectSystemId}} to {{integrationCell.integration.toProjectSystemId}}</div>
+      <div class="close" (click)="closeModal()">&times;</div>
+    </div>
+    <div class="modal__info">
+      <div class="link">
+        <a href="{{integrationCell.integration.integrationDocsUrl}}" target="_blank">integration docs</a>
+      </div>
+    </div>
+
+  </div>
+</div>

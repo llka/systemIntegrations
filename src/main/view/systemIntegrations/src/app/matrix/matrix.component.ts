@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {MatrixCell} from '../matrix-cell/MatrixCell';
-import {MatrixRaw} from './MatrixRaw';
+import {MatrixRow} from './MatrixRow';
 
 @Component({
   selector: 'app-matrix',
@@ -13,12 +13,12 @@ export class MatrixComponent implements OnInit {
   matrix: MatrixCell[][];
   size: number;
   cellWidth: string;
-  raws: MatrixRaw[] = [];
+  rows: MatrixRow[] = [];
 
   constructor(private dataService: DataService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getMatrix();
   }
 
@@ -30,7 +30,7 @@ export class MatrixComponent implements OnInit {
     this.cellWidth = 100 / this.size + '%';
 
     for (let i = 0; i < this.size; i++) {
-      this.raws[i] = new MatrixRaw(this.matrix[i]);
+      this.rows[i] = new MatrixRow(this.matrix[i]);
     }
   }
 

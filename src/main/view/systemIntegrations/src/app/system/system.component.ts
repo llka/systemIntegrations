@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {SystemMatrixCell} from '../matrix-cell/SystemMatrixCell';
 
 @Component({
   selector: 'app-system',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SystemComponent implements OnInit {
 
-  constructor() { }
+  @Input() systemCell: SystemMatrixCell;
+  displayModal = 'none';
+  linksMap: Map<string, string>;
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.linksMap = this.buildMap(this.systemCell.system.links);
+  }
+
+  buildMap(obj) {
+    return Object.keys(obj).reduce((map, key) => map.set(key, obj[key]), new Map());
+  }
+
+  logMapElements(value, key, map) {
+    console.log(`${key} = ${value}`);
+  }
+
+  openModal() {
+    this.displayModal = 'block';
+  }
+
+  closeModal() {
+    this.displayModal = 'none';
   }
 
 }

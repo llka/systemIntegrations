@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {MatrixComponent} from './matrix/matrix.component';
 
-const routes: Routes = [];
+const routes: Routes = [{path: 'matrix', component: MatrixComponent}];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

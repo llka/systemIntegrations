@@ -4,23 +4,25 @@
       <a href="#">Systems' Integration</a>
     </div>
     <div class="header__links">
-      <!--<a *ngIf="authorized === true" (click)="logOut()">Log out</a>-->
-      <!--<a *ngIf="authorized === false" (click)="updateIsAuthorizedStatus()" routerLink="login" routerLinkActive="active">Log In</a>-->
-      <!--<a *ngIf="authorized === false" (click)="updateIsAuthorizedStatus()" routerLink="register" routerLinkActive="active">Register</a>-->
-      <!--<a routerLink="user" routerLinkActive="active" (click)="updateIsAuthorizedStatus()">Users</a>-->
-      <!--<a routerLink="apartment" routerLinkActive="active" (click)="updateIsAuthorizedStatus()">Apartments</a>-->
+      <a routerLink="matrix" routerLinkActive="active">Matrix</a>
     </div>
   </nav>
-  <!--<router-outlet></router-outlet>-->
 </div>
 <div class="row">
   <div class="col-1"></div>
   <div class="col-10">
-    <app-matrix>
-
-    </app-matrix>
+    <router-outlet></router-outlet>
   </div>
   <div class="col-1"></div>
-
 </div>
+
+<!--<div class="row">-->
+  <!--<div class="col-1"></div>-->
+  <!--<div class="col-10">-->
+    <!--<app-matrix>-->
+
+    <!--</app-matrix>-->
+  <!--</div>-->
+  <!--<div class="col-1"></div>-->
+<!--</div>-->
 

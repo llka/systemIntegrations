@@ -1,3 +1,10 @@
-<p>
-  matrix-cell works!
-</p>
+<div *ngIf="cellType === 'system'">
+  <app-system [systemCell]="matrixCell"></app-system>
+</div>
+<div *ngIf="cellType === 'integration'">
+  <app-integration [integrationCell]="matrixCell"></app-integration>
+</div>
+<div *ngIf="cellType === 'cell'" class="matrix__cell">
+  {{matrixCell.displayedInfo}}
+</div>
+

@@ -2,11 +2,6 @@
   color: #f2f2f2;
 }
 
-.matrix__raw {
+.matrix__row {
   display: flex;
-}
-
-.matrix__cell {
-  padding: 20px;
-  border: solid 1px whitesmoke;
 }

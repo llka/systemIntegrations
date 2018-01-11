@@ -1,3 +1,23 @@
-<p>
-  system works!
-</p>
+<div class="matrix__cell" (click)="openModal()">
+  {{systemCell.displayedInfo}}
+</div>
+
+<div class="mask" [style.display] = displayModal>
+  <div class="modal animate">
+
+    <div class="modal__header">
+      <div>{{systemCell.system.fullName}}</div>
+      <div class="close" (click)="closeModal()">&times;</div>
+    </div>
+    <div class="modal__info">
+      <div class="link" *ngFor="let link of linksMap.entries() ">
+        <a href="{{link[1]}}" target="_blank">{{link[0]}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

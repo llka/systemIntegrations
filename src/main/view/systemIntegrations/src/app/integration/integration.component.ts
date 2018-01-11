@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IntegrationMatrixCell} from '../matrix-cell/IntegrationMatrixCell';
 
 @Component({
   selector: 'app-integration',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntegrationComponent implements OnInit {
 
-  constructor() { }
+  @Input() integrationCell: IntegrationMatrixCell;
+  displayModal = 'none';
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  openModal() {
+    this.displayModal = 'block';
+  }
+
+  closeModal() {
+    this.displayModal = 'none';
   }
 
 }
