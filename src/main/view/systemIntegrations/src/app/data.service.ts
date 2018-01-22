@@ -26,4 +26,8 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  public loadMatrix() {
+    return this.httpClient.get(this.matrixUrl, {headers: this.headers});
+  }
+
 }

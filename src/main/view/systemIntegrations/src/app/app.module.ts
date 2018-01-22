@@ -10,6 +10,8 @@ import { IntegrationComponent } from './integration/integration.component';
 import {DataService} from './data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
+import { ModalComponent } from './modal/modal.component';
+import { ModalService } from './modal.service';
 
 
 @NgModule({
@@ -19,13 +21,14 @@ import {AppRoutingModule} from './app-routing.module';
     MatrixComponent,
     MatrixCellComponent,
     IntegrationComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [DataService],
+  providers: [DataService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

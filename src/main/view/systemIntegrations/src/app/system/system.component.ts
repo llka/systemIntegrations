@@ -11,12 +11,14 @@ export class SystemComponent implements OnInit {
   @Input() systemCell: SystemMatrixCell;
   displayModal = 'none';
   linksMap: Map<string, string>;
+  linksArray;
 
   constructor() {
   }
 
   ngOnInit() {
     this.linksMap = this.buildMap(this.systemCell.system.links);
+    this.linksArray = Array.from(this.linksMap);
   }
 
   buildMap(obj) {

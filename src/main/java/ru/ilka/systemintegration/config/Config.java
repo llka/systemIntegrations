@@ -24,7 +24,7 @@ public class Config {
 
     //http://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
     //https://editor.swagger.io//?_ga=2.161732990.35370229.1515158885-1944002411.1515158885#/
-    //http://localhost:8099/v2/api-docs
+    //http://localhost:8088/v2/api-docs
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -42,6 +42,6 @@ public class Config {
                 "API TOS",
                 "Terms of service",
                 new Contact("Ilya Kisel", "https://github.com/llka/", "ilya_kisel@epam.com"),
-                "License of API", "API license URL", Collections.emptyList());
+                "License of API", "https://git.epam.com/Ilya_Kisel/javalab/tree/systemIntegrations", Collections.emptyList());
     }
 }

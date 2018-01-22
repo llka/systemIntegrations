@@ -17,7 +17,7 @@ public class ControllerExceptionHandler {
         Gson gson = new Gson();
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setContentType(MediaType.APPLICATION_JSON);
-        return new ResponseEntity<String>(gson.toJson(exception.getCause().getMessage()), responseHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(gson.toJson(exception.getCause().getMessage()), responseHeaders, HttpStatus.OK);
     }
 
 }

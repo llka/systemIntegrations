@@ -44,7 +44,7 @@ public class SystemIntegrationsJsonParser {
         }
     }
 
-    public void writeMatrix(MatrixCell[][] matrix, String fileName){
+    public void writeMatrix(MatrixCell[][] matrix, String fileName) {
         String jsonInString = gson.toJson(matrix);
         try (FileWriter file = new FileWriter(fileName)) {
             file.write(jsonInString);

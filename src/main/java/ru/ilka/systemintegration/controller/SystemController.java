@@ -13,7 +13,7 @@ import ru.ilka.systemintegration.logic.SystemLogic;
 import java.util.List;
 
 @RestController
-@RequestMapping("/systems")
+@RequestMapping("/system")
 public class SystemController {
     private static final String MEDIA_TYPE_JSON = "application/json";
 

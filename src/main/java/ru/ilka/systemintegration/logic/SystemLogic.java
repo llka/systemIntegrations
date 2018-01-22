@@ -34,6 +34,7 @@ public class SystemLogic {
             throw new LogicException(e);
         }
         sortSystemsInLexicalOrder(systems);
+        systemJsonParser.writeSystems(systems, SYSTEMS_FILE);
         return systems;
     }
 
